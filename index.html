@@ -282,6 +282,13 @@ footer{
   margin-bottom:20px;
 }
 
+.projects .grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:32px;
+  align-items:stretch; /* خیلی مهم */
+}
+
 /* Responsive */
 @media (max-width: 900px){
   .hero-grid{
