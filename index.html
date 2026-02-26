@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link href="./Mohammad Khadem_files/favicon_light.png" rel="icon" media="(prefers-color-scheme: dark)">
 <link href="./Mohammad Khadem_files/favicon_dark.png" rel="icon" media="(prefers-color-scheme: light)">
-  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
 <style>
 :root{
   --bg:#f4f6f9;
@@ -203,6 +203,34 @@ footer{
 .hero-image img:hover{
   filter:grayscale(0%);
   opacity:1;
+}
+
+.hero-social{
+  margin:20px 0 25px 0;
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+
+.hero-social a{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter: blur(8px);
+  border:1px solid rgba(0,0,0,0.06);
+  color:var(--text);
+  font-size:18px;
+  transition:all .25s ease;
+}
+
+.hero-social a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  color:var(--accent);
 }
 
 /* Responsive */
