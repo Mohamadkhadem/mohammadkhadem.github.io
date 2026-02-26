@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheque Assistant | Mohammad Khadem</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #ffffff;
+      color: #222;
+      font-family: "SF Pro Text", sans-serif;
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    .project-header {
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: #f4f6f9;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .project-header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #122a5f;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .project-header p {
+      font-size: 18px;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .project-content {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 0 24px;
+    }
+
+    .project-content h2 {
+      font-size: 26px;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .project-content p, .project-content li {
+      color: #444;
+      font-size: 17px;
+    }
+
+    .project-content ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .project-content ul li::before {
+      content: "•";
+      color: #0c0c0c;
+      margin-right: 10px;
+    }
+
+    .project-content img {
+      width: 100%;
+      border-radius: 16px;
+      margin: 50px 0;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 80px;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #0c0c0c, #0c0c0c);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: linear-gradient(90deg, #0c0c0c, #0c0c0c);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+    }
+
+    .carousel img {
+      width: 100%;
+      display: block;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .btn{
+      position:relative;
+      padding:12px 22px;
+      font-weight:600;
+      font-size:14px;
+      border-radius:14px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:all .3s ease;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .btn-primary{
+      background:rgba(37,99,235,0.15);
+      color:var(--accent);
+      border:1px solid rgba(37,99,235,0.35);
+    }
+
+    .btn-primary:hover{
+      background:rgba(37,99,235,0.25);
+      transform:translateY(-2px);
+    }
+
+    .btn-glass{
+      background:rgba(255,255,255,0.35);
+      border:1px solid rgba(255,255,255,0.6);
+      color:var(--text);
+      box-shadow:0 8px 25px rgba(0,0,0,0.05);
+    }
+
+    .btn-glass:hover{
+      background:rgba(255,255,255,0.55);
+      transform:translateY(-2px);
+    }
+
+
+    /* GRID */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:24px;
+      margin-top:60px;
+    }
+
+    .gallery-item{
+      position:relative;
+      aspect-ratio:1/1; /* مربعی */
+      overflow:hidden;
+      border-radius:18px;
+      cursor:pointer;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      transition:transform .3s ease;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .4s ease;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.1);
+    }
+
+    /* MODAL */
+    .image-modal{
+      display:none;
+      position:fixed;
+      z-index:9999;
+      inset:0;
+      background:rgba(0,0,0,0.85);
+      backdrop-filter:blur(10px);
+      align-items:center;
+      justify-content:center;
+    }
+
+    .image-modal img{
+      max-width:90%;
+      max-height:85%;
+      border-radius:16px;
+    }
+
+    .image-modal img{
+      width:auto;
+      height:auto;
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain; /* خیلی مهم */
+      border-radius:16px;
+    }
+
+    .close-btn{
+      position:absolute;
+      top:40px;
+      right:60px;
+      font-size:40px;
+      color:#fff;
+      cursor:pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="project-header">
+    <h1>Cheque Assistant</h1>
+    <p>Cheque Assistant, a smart solution for managing incoming and outgoing checks</p>
+  </header>
+
+  <section class="project-content">
+    <h2>Overview</h2>
+    <p>
+      Cheque Assistant App is a standalone, high-performance application engineered for managing both incoming and outgoing checks with advanced analytical dashboards. The software is developed using Dart and Flutter, leveraging a reactive, cross-platform architecture for consistent performance across devices.
+
+      The system integrates directly with Google APIs and Dropbox, enabling automated synchronization and secure cloud storage while maintaining local operational capability.
+
+      Security & Data Integrity: All sensitive data is encrypted at rest and in transit. Cheque Assistant App is designed to operate fully offline without connectivity dependency, ensuring continuous functionality in restricted network environments.
+
+      With its modular architecture, robust encryption, and offline operability, Cheque Assistant App provides a technically resilient solution for enterprise-grade check management.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li>Comprehensive Check Management – Track, record, and manage both incoming and outgoing checks with full audit trails.</li>
+      <li>Advanced Analytical Dashboards – Visualize check data with interactive charts for better decision-making.</li>
+      <li>Cross-Platform Architecture – Built with Dart and Flutter for consistent performance across desktop and mobile devices.</li>
+      <li>Cloud Integration – Direct connection to Google APIs and Dropbox for automated backups and synchronization.</li>
+      <li>Offline Capability – Fully operational without an internet connection, ensuring uninterrupted workflow.</li>
+      <li>Data Security & Encryption – All data encrypted at rest and in transit to safeguard financial information.</li>
+      <li>Modular & Scalable Design – Easily extendable architecture to support future features and integrations.</li>
+    </ul>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="Mohammad Khadem_files/xHUwoNvyPD9mXPobYOgrCqxFULM.jpeg" alt="Screenshot 1">
+      </div>
+
+      <div class="gallery-item">
+        <img src="Mohammad Khadem_files/FYmyqWm8Xlpt2nvJUV5JPJophI.jpg" alt="Screenshot 2">
+      </div>
+
+      <div class="gallery-item">
+        <img src="Mohammad Khadem_files/xHUwoNvyPD9mXPobYOgrCqxFULM.jpeg" alt="Screenshot 3">
+      </div>
+
+      <div class="gallery-item">
+        <img src="Mohammad Khadem_files/FYmyqWm8Xlpt2nvJUV5JPJophI.jpg" alt="Screenshot 4">
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="image-modal" id="imageModal">
+      <span class="close-btn">&times;</span>
+      <img class="modal-content" id="modalImage">
+    </div>
+    
+    <h2>Tech Stack</h2>
+    <p>• Frontend & Cross-Platform Framework: Dart & Flutter – reactive, high-performance UI for desktop and mobile</p>
+    <p>• Backend & Services Integration: Direct API integration with Google Services & Dropbox</p>
+    <p>• Database & Storage: Local encrypted storage with optional cloud synchronization</p>
+    <p>• Security: Full encryption at rest and in transit, offline-ready secure operations</p>
+    <p>• Architecture: Modular, scalable, and maintainable structure for future extensions</p>
+    <p>• Analytics & Visualization: Built-in dashboards with interactive charts for check tracking</p>
+    <a href="./index.html" class="btn btn-primary">← Back Home</a>
+  </section>
+
+
+  <script>
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-btn');
+
+    galleryItems.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal){
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+  <!-- <script>
+    const carouselInner = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    let index = 0;
+
+    document.querySelector('.next').addEventListener('click', () => {
+      index = (index + 1) % items.length;
+      carouselInner.style.transform = `translateX(-${index * 100}%)`;
+    });
+
+    document.querySelector('.prev').addEventListener('click', () => {
+      index = (index - 1 + items.length) % items.length;
+      carouselInner.style.transform = `translateX(-${index * 100}%)`;
+    });
+  </script> -->
+</body>
+</html>
