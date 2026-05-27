@@ -112,7 +112,7 @@ header{
 
 /* ================= BUTTONS ================= */
 
-.btn{
+/* .btn{
   position:relative;
   padding:12px 22px;
   border-radius:14px;
@@ -125,13 +125,34 @@ header{
   justify-content:center;
 
   transition:all .25s ease;
+} */
+
+.btn {
+    position: relative;
+    padding: 12px 22px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .3s ease;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
-.btn-primary{
+/* .btn-primary{
   background:var(--accent);
   color:#fff;
   box-shadow:
     0 10px 25px rgba(79,124,255,0.22);
+} */
+ .btn-primary {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(37, 99, 235, 0.35);
 }
 
 .btn-primary:hover{
