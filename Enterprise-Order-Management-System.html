@@ -6,10 +6,56 @@
 <title>Orash Mobile Order Taker</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="./Mohammad Khadem_files/favicon_light.png" rel="icon" media="(prefers-color-scheme: dark)">
-<link href="./Mohammad Khadem_files/favicon_dark.png" rel="icon" media="(prefers-color-scheme: light)">
+<link href="Mohammad Khadem_files/favicon_light.png" rel="icon" media="(prefers-color-scheme: dark)">
+<link href="Mohammad Khadem_files/favicon_dark.png" rel="icon" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  backdrop-filter:blur(16px);
+  background:rgba(245,247,251,0.8);
+  border-bottom:1px solid rgba(15,23,42,0.06);
+  padding:16px 24px;
+}
+
+.topbar-inner{
+  max-width:1150px;
+  margin:auto;
+}
+
+.back-link{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:700;
+  font-size:14.5px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.back-link:hover{
+  color:var(--accent);
+}
+
+.cover-showcase{
+  max-width:640px;
+  margin:56px auto 0;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,0.8);
+}
+
+.cover-showcase svg{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
 
 /* ================= ROOT ================= */
 
@@ -274,6 +320,12 @@ section{
 
 <body>
 
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">&larr; Mohammad Khadem</a>
+  </div>
+</div>
+
 <!-- HERO -->
 
 <div class="hero fade">
@@ -365,32 +417,32 @@ section{
 </section>
 
 
-<!-- SCREENSHOTS -->
+<!-- OVERVIEW GRAPHIC -->
 
 <section id="screenshots" class="fade">
 
   <h2 class="section-title">
-    Product Screenshots
+    Platform Overview
   </h2>
 
-  <div class="gallery-grid">
+  <p class="section-text" style="margin-bottom:36px;">
+    A ticket-fast ordering flow that keeps working offline and
+    reconciles with the POS the moment the connection returns.
+  </p>
 
-    <div class="gallery-item">
-      <img src="images/order-dashboard.jpg" alt="Order Dashboard">
-    </div>
-
-    <div class="gallery-item">
-      <img src="images/menu-selection.jpg" alt="Menu Selection">
-    </div>
-
-    <div class="gallery-item">
-      <img src="images/order-cart.jpg" alt="Cart & Checkout">
-    </div>
-
-    <div class="gallery-item">
-      <img src="images/order-tracking.jpg" alt="Order Tracking">
-    </div>
-
+  <div class="cover-showcase">
+    <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="225" fill="#eef2ff"/>
+      <path d="M150 45 h100 v130 l-15 15 h-70 l-15 -15 z" fill="#ffffff" stroke="#4f7cff" stroke-width="3"/>
+      <path d="M150 45 l10 -10 h80 l10 10" fill="none" stroke="#4f7cff" stroke-width="3" stroke-linejoin="round"/>
+      <rect x="168" y="70" width="64" height="6" rx="3" fill="#c7d5ff"/>
+      <rect x="168" y="86" width="64" height="6" rx="3" fill="#dbe3ff"/>
+      <rect x="168" y="102" width="44" height="6" rx="3" fill="#dbe3ff"/>
+      <path d="M168 122 h64" stroke="#eef2ff" stroke-width="2"/>
+      <path d="M172 138 l10 8 16 -20" stroke="#4f7cff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="290" cy="70" r="22" fill="#4f7cff"/>
+      <path d="M280 70 h20 M290 60 v20" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    </svg>
   </div>
 
 </section>
