@@ -1,1197 +1,1225 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>Mohammad Khadem | Senior Full-Stack Developer & Tech Lead</title>
-<meta name="description" content="Senior Full-Stack Developer and Tech Lead with 10+ years building scalable accounting SaaS, financial systems, and mobile platforms.">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="Mohammad Khadem_files/favicon_light.png" rel="icon" media="(prefers-color-scheme: dark)">
-<link href="Mohammad Khadem_files/favicon_dark.png" rel="icon" media="(prefers-color-scheme: light)">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-
-/* ================= ROOT ================= */
-
-:root{
-  --bg:#f5f7fb;
-  --panel:rgba(255,255,255,0.72);
-  --panel-solid:#ffffff;
-  --border:rgba(15,23,42,0.06);
-
-  --text:#0f172a;
-  --muted:#64748b;
-
-  --accent:#4f7cff;
-  --accent-2:#7c5cff;
-
-  --shadow:
-    0 10px 30px rgba(15,23,42,0.05);
-
-  --shadow-hover:
-    0 20px 50px rgba(15,23,42,0.08);
-}
-
-/* ================= BASE ================= */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
-  overflow-x:hidden;
-}
-
-/* subtle background */
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at top left,
-      rgba(79,124,255,0.08),
-      transparent 35%),
-    radial-gradient(circle at bottom right,
-      rgba(79,124,255,0.05),
-      transparent 40%);
-  pointer-events:none;
-  z-index:-1;
-}
-
-/* ================= CONTAINER ================= */
-
-.container{
-  width:92%;
-  max-width:1200px;
-  margin:auto;
-}
-
-/* ================= HEADER ================= */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  backdrop-filter:blur(16px);
-  background:rgba(245,247,251,0.72);
-  border-bottom:1px solid var(--border);
-}
-
-.header-flex{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 0;
-}
-
-.brand{
-  font-size:18px;
-  font-weight:700;
-  letter-spacing:-0.3px;
-}
-
-.brand span{
-  color:var(--accent);
-}
-
-nav.main-nav{
-  display:flex;
-  gap:28px;
-}
-
-nav.main-nav a{
-  color:var(--muted);
-  text-decoration:none;
-  font-size:14.5px;
-  font-weight:500;
-  transition:color .2s ease;
-}
-
-nav.main-nav a:hover{
-  color:var(--text);
-}
-
-.header-actions{
-  display:flex;
-  gap:12px;
-}
-
-/* ================= BUTTONS ================= */
-
-.btn {
-    position: relative;
-    padding: 12px 22px;
-    font-weight: 600;
-    font-size: 14px;
-    border-radius: 14px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    cursor: pointer;
-    transition: all .3s ease;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
-
-.btn-primary {
-    background: color-mix(in srgb, var(--accent) 15%, transparent);
-    color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-}
-
-.btn-primary:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 16px 40px rgba(79,124,255,0.28);
-}
-
-.btn-glass{
-  background:var(--panel);
-  backdrop-filter:blur(14px);
-
-  border:1px solid rgba(255,255,255,0.7);
-
-  color:var(--text);
-
-  box-shadow:var(--shadow);
-}
-
-.btn-glass:hover{
-  transform:translateY(-3px);
-}
-
-/* ================= HERO ================= */
-
-.hero{
-  padding:110px 0 90px;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  align-items:center;
-  gap:70px;
-}
-
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  color:var(--accent);
-  font-size:13.5px;
-  font-weight:600;
-  margin-bottom:18px;
-}
-
-.eyebrow::before{
-  content:'';
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--accent);
-}
-
-.hero-content h1{
-  font-size:58px;
-  line-height:1.1;
-  letter-spacing:-2px;
-  margin-bottom:22px;
-}
-
-.hero-content h1 span{
-  color:var(--accent);
-}
-
-.hero-content p{
-  max-width:640px;
-  color:var(--muted);
-  font-size:17px;
-  margin-bottom:30px;
-}
-
-.hero-stats{
-  display:flex;
-  gap:34px;
-  margin-bottom:34px;
-  flex-wrap:wrap;
-}
-
-.hero-stats div strong{
-  display:block;
-  font-size:26px;
-  font-weight:700;
-  letter-spacing:-0.5px;
-}
-
-.hero-stats div span{
-  color:var(--muted);
-  font-size:13.5px;
-}
-
-.hero-actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.hero-social{
-  margin-top:30px;
-  display:flex;
-  gap:14px;
-}
-
-.hero-social a{
-  width:46px;
-  height:46px;
-
-  border-radius:14px;
-
-  background:var(--panel);
-
-  backdrop-filter:blur(12px);
-
-  border:1px solid rgba(255,255,255,0.7);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  color:var(--text);
-  font-size:18px;
-
-  transition:all .25s ease;
-
-  box-shadow:var(--shadow);
-}
-
-.hero-social a:hover{
-  transform:translateY(-4px);
-  color:var(--accent);
-}
-
-.hero-image{
-  display:flex;
-  justify-content:flex-end;
-  position:relative;
-}
-
-.hero-image .glow{
-  position:absolute;
-  width:280px;
-  height:280px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(79,124,255,0.25), transparent 70%);
-  top:50%;
-  right:40px;
-  transform:translateY(-50%);
-  z-index:0;
-  filter:blur(10px);
-}
-
-.hero-image img{
-  width:320px;
-  position:relative;
-  z-index:1;
-
-  border-radius:26px;
-
-  object-fit:cover;
-
-  box-shadow:
-    0 30px 60px rgba(15,23,42,0.10);
-
-  transition:all .35s ease;
-}
-
-.hero-image img:hover{
-  transform:translateY(-6px);
-}
-
-/* ================= LOGO STRIP ================= */
-
-.logo-strip{
-  padding:36px 0 90px;
-}
-
-.logo-strip p{
-  text-align:center;
-  color:var(--muted);
-  font-size:13.5px;
-  margin-bottom:28px;
-}
-
-.logo-row{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:56px;
-  flex-wrap:wrap;
-}
-
-.logo-row img{
-  height:44px;
-  width:auto;
-  filter:grayscale(100%) opacity(0.55);
-  transition:filter .3s ease, transform .3s ease;
-}
-
-.logo-row img:hover{
-  filter:grayscale(0%) opacity(1);
-  transform:translateY(-2px);
-}
-
-/* ================= SECTION ================= */
-
-.section{
-  padding:90px 0;
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:24px;
-  margin-bottom:50px;
-  flex-wrap:wrap;
-}
-
-.section-title{
-  font-size:36px;
-  letter-spacing:-1px;
-}
-
-.section-sub{
-  color:var(--muted);
-  max-width:460px;
-  font-size:15px;
-}
-
-/* ================= GRID ================= */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-}
-
-/* ================= CARD ================= */
-
-.card{
-  background:var(--panel);
-
-  backdrop-filter:blur(14px);
-
-  border:1px solid rgba(255,255,255,0.8);
-
-  border-radius:22px;
-
-  padding:26px;
-
-  box-shadow:var(--shadow);
-
-  transition:all .3s ease;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:var(--shadow-hover);
-}
-
-.card .icon{
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  background:color-mix(in srgb, var(--accent) 14%, transparent);
-  color:var(--accent);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:17px;
-  margin-bottom:16px;
-}
-
-.card h3{
-  margin-bottom:10px;
-  font-size:18px;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:14.5px;
-}
-
-/* ================= EXPERIENCE TIMELINE ================= */
-
-.timeline{
-  position:relative;
-  padding-left:34px;
-  border-left:1px solid var(--border);
-}
-
-.timeline-item{
-  position:relative;
-  padding-bottom:44px;
-}
-
-.timeline-item:last-child{
-  padding-bottom:0;
-}
-
-.timeline-item::before{
-  content:'';
-  position:absolute;
-  left:-40px;
-  top:4px;
-  width:11px;
-  height:11px;
-  border-radius:50%;
-  background:var(--bg);
-  border:2px solid var(--accent);
-}
-
-.timeline-head{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-  margin-bottom:6px;
-}
-
-.timeline-head h3{
-  font-size:19px;
-}
-
-.timeline-head .period{
-  color:var(--accent);
-  font-size:13px;
-  font-weight:600;
-  white-space:nowrap;
-}
-
-.timeline-org{
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:12px;
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.timeline-org img{
-  height:20px;
-  width:auto;
-  border-radius:4px;
-}
-
-.timeline-item ul{
-  color:var(--muted);
-  font-size:14.5px;
-  padding-left:18px;
-}
-
-.timeline-item ul li{
-  margin-bottom:6px;
-}
-
-/* ================= PROJECTS ================= */
-
-.project-card{
-  background:var(--panel-solid);
-
-  border-radius:26px;
-
-  overflow:hidden;
-
-  border:1px solid rgba(15,23,42,0.05);
-
-  box-shadow:var(--shadow);
-
-  transition:all .3s ease;
-
-  display:flex;
-  flex-direction:column;
-}
-
-.project-card:hover{
-  transform:translateY(-8px);
-  box-shadow:var(--shadow-hover);
-}
-
-.project-thumb{
-  position:relative;
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(79,124,255,0.10),
-      rgba(79,124,255,0.03)
-    );
-}
-
-.project-thumb svg{
-  width:100%;
-  height:100%;
-  display:block;
-}
-
-.project-tag{
-  position:absolute;
-  top:16px;
-  left:16px;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(6px);
-  color:var(--text);
-  font-size:11.5px;
-  font-weight:600;
-  padding:6px 12px;
-  border-radius:999px;
-  z-index:2;
-}
-
-.project-content{
-  padding:26px;
-  display:flex;
-  flex-direction:column;
-  flex:1;
-}
-
-.project-content h3{
-  margin-bottom:12px;
-}
-
-.project-content p{
-  color:var(--muted);
-  margin-bottom:24px;
-  font-size:14.5px;
-  flex:1;
-}
-
-/* ================= CTA SECTION ================= */
-
-.cta-box{
-  background:
-    linear-gradient(
-      135deg,
-      rgba(79,124,255,0.10),
-      rgba(255,255,255,0.65)
-    );
-
-  border:1px solid rgba(255,255,255,0.9);
-
-  border-radius:30px;
-
-  padding:60px;
-
-  text-align:center;
-
-  box-shadow:var(--shadow);
-}
-
-.cta-box p{
-  color:var(--muted);
-  max-width:650px;
-  margin:20px auto 30px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  padding:50px 0;
-  text-align:center;
-  color:var(--muted);
-  font-size:14px;
-  border-top:1px solid var(--border);
-}
-
-footer .foot-links{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  margin-bottom:18px;
-}
-
-footer .foot-links a{
-  color:var(--text);
-  text-decoration:none;
-  font-size:14px;
-}
-
-footer .foot-links a:hover{
-  color:var(--accent);
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:950px){
-
-  nav.main-nav{
-    display:none;
-  }
-
-  .hero-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero-content p{
-    margin-inline:auto;
-  }
-
-  .hero-stats,
-  .hero-actions,
-  .hero-social{
-    justify-content:center;
-  }
-
-  .hero-image{
-    justify-content:center;
-    margin-top:20px;
-  }
-
-  .hero-content h1{
-    font-size:44px;
-  }
-
-  .timeline{
-    padding-left:26px;
-  }
-
-  .timeline-item::before{
-    left:-32px;
-  }
-
-}
-
-@media(max-width:640px){
-
-  .hero{
-    padding-top:90px;
-  }
-
-  .hero-content h1{
-    font-size:34px;
-    letter-spacing:-1.5px;
-  }
-
-  .section-title{
-    font-size:26px;
-  }
-
-  .header-flex{
-    flex-direction:column;
-    gap:14px;
-  }
-
-  .cta-box{
-    padding:40px 24px;
-  }
-
-  .logo-row{
-    gap:32px;
-  }
-
-  .logo-row img{
-    height:32px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8fc">
+  <meta name="description" content="Mohammad Khadem is a Senior Software Engineer and technical leader focused on scalable business software, financial platforms, APIs, and cross-platform mobile products.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://mohammadkhadem.ir/">
+  <title>Mohammad Khadem — Senior Software Engineer & Technical Lead</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="Mohammad Khadem_files/favicon_light.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --surface: rgba(255,255,255,.84);
+      --text: #111827;
+      --muted: #5e6b80;
+      --line: #e6ebf3;
+      --accent: #4169e1;
+      --accent-dark: #2f50b5;
+      --accent-soft: #edf2ff;
+      --shadow: 0 12px 36px rgba(25,42,75,.07);
+      --shadow-hover: 0 22px 54px rgba(25,42,75,.12);
+      --container: 1160px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      /* font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; */
+      font-family: "SF Pro Display", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 5% 4%, rgba(65,105,225,.09), transparent 32rem),
+        radial-gradient(ellipse at 95% 40%, rgba(124,92,255,.06), transparent 28rem),
+        var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; }
+    a { color: inherit; }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid rgba(65,105,225,.55);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(92%, var(--container));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      z-index: 2000;
+      background: var(--text);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(246,248,252,.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.6px;
+      font-size: 19px;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav a:hover { color: var(--accent); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 11px 18px;
+      border-radius: 13px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(65,105,225,.19);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      box-shadow: 0 12px 26px rgba(65,105,225,.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.8);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover { box-shadow: var(--shadow); }
+
+    .hero { padding: 82px 0 60px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.15fr) minmax(280px,.85fr);
+      align-items: center;
+      gap: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(65,105,225,.1);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 22px;
+      font-size: clamp(2.7rem,5.4vw,4.55rem);
+      line-height: 1.06;
+      letter-spacing: -.040em;
+    }
+
+    h1 .accent { color: var(--accent); }
+
+    .hero-copy {
+      max-width: 650px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .hero-copy strong { color: #344054; }
+
+    .hero-stats {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 0 0 30px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      line-height: 1.25;
+      letter-spacing: -.04em;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .social-links a {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      color: #3d4a60;
+      text-decoration: none;
+      transition: .2s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: #cbd7ff;
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      min-height: 400px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(65,105,225,.13), rgba(65,105,225,.025) 58%, transparent 72%);
+      filter: blur(5px);
+    }
+
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      width: min(330px,82%);
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 28px;
+      opacity: .78;
+      /* filter: grayscale(100%) saturate(.6); */
+      box-shadow: 0 30px 70px rgba(31,48,81,.13);
+      border: 1px solid rgba(255,255,255,.8);
+    }
+
+    .visual-note {
+      position: absolute;
+      z-index: 2;
+      bottom: 28px;
+      left: 0;
+      padding: 13px 16px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(255,255,255,.95);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      font-size: 12px;
+      color: var(--muted);
+      backdrop-filter: blur(12px);
+    }
+
+    .visual-note strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .client-strip { padding: 16px 0 58px; }
+
+    .client-strip p {
+      text-align: center;
+      color: #7a8698;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 24px;
+    }
+
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(28px,6vw,66px);
+      flex-wrap: wrap;
+    }
+
+    .logo-row img {
+      width: auto;
+      max-width: 150px;
+      height: 36px;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: .58;
+      transition: opacity .2s ease, filter .2s ease;
+    }
+
+    .logo-row img:hover { filter: grayscale(0); opacity: 1; }
+
+    .section { padding: 76px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin-bottom: 0;
+      font-size: clamp(1.8rem,3vw,2.5rem);
+      letter-spacing: -.040em;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      max-width: 490px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .expertise-card {
+      padding: 24px;
+      border: 1px solid rgba(230,235,243,.9);
+      border-radius: 22px;
+      background: var(--surface);
+      box-shadow: 0 6px 24px rgba(25,42,75,.035);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .expertise-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .expertise-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .expertise-card h3 { font-size: 15px; margin-bottom: 8px; }
+
+    .expertise-card p {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-radius: 23px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(25,42,75,.045);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-art {
+      position: relative;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg,#eef2ff,#f7f8ff);
+    }
+
+    .project-art svg { width: 100%; height: 100%; display: block; }
+
+    .project-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 1;
+      background: rgba(255,255,255,.88);
+      color: #334155;
+      border: 1px solid rgba(255,255,255,.9);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .project-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 23px;
+    }
+
+    .project-body h3 {
+      font-size: 18px;
+      letter-spacing: -.025em;
+      margin-bottom: 9px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: auto 0 18px;
+    }
+
+    .chip {
+      background: #f3f6fb;
+      color: #536176;
+      border: 1px solid #e8edf5;
+      border-radius: 7px;
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .project-body .btn { align-self: flex-start; }
+
+    .case-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 18px;
+    }
+
+    .timeline {
+      border-left: 1px solid #dbe3ef;
+      margin-left: 7px;
+      padding-left: 28px;
+    }
+
+    .timeline-item { position: relative; padding-bottom: 34px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -35px;
+      top: 7px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 5px var(--bg);
+    }
+
+    .timeline-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .timeline-head h3 { font-size: 16px; margin-bottom: 0; }
+
+    .period { color: var(--accent); font-size: 11px; font-weight: 800; }
+
+    .timeline-org { color: var(--muted); font-size: 12px; margin-bottom: 12px; }
+
+    .timeline-org img {
+      height: 18px;
+      width: auto;
+      object-fit: contain;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    .timeline-item ul {
+      color: var(--muted);
+      font-size: 13px;
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .timeline-item li { margin-bottom: 5px; }
+
+    .leadership-panel {
+      margin-top: 30px;
+      padding: 26px;
+      border: 1px solid #dce5ff;
+      border-radius: 22px;
+      background: linear-gradient(120deg,rgba(237,242,255,.9),rgba(255,255,255,.88));
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .leadership-panel h3 { font-size: 16px; margin-bottom: 8px; }
+
+    .leadership-panel p { color: var(--muted); font-size: 13px; margin-bottom: 0; }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: start;
+      gap: 8px;
+    }
+
+    .skill-list span {
+      border: 1px solid #dce5ff;
+      background: rgba(255,255,255,.8);
+      color: #41537d;
+      border-radius: 9px;
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .contact-section { padding: 70px 0 86px; }
+
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px,6vw,62px);
+      text-align: center;
+      border: 1px solid #dce5ff;
+      border-radius: 30px;
+      background: radial-gradient(circle at 50% 0,rgba(65,105,225,.11),transparent 55%),rgba(255,255,255,.82);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      max-width: 680px;
+      margin: 0 auto 14px;
+      font-size: clamp(1.9rem,4vw,3rem);
+      line-height: 1.15;
+      letter-spacing: -.040em;
+    }
+
+    .contact-box p {
+      max-width: 630px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 27px 0;
+      color: #7a8698;
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    @media (max-width: 980px) {
+      .hero-grid { gap: 32px; }
+      .hero-visual { min-height: 340px; }
+      .hero-photo { width: min(290px,85%); }
+      .expertise-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .nav { gap: 16px; }
+      .header-inner { gap: 16px; }
+    }
+
+    @media (max-width: 760px) {
+      .header-inner { min-height: 70px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+
+      .nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        padding: 14px 5%;
+        background: rgba(255,255,255,.97);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav.is-open { display: flex; }
+      .nav a { padding: 12px 0; }
+      .header-actions .btn-secondary { display: none; }
+      .hero { padding-top: 56px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-copy { margin-inline: auto; font-size: 14px; }
+      .hero-stats, .hero-actions, .social-links { justify-content: center; }
+      .hero-visual { min-height: 320px; margin-top: 5px; }
+      .visual-note { left: 5%; bottom: 12px; }
+      .section { padding: 58px 0; }
+      .section-head { display: block; }
+      .section-sub { margin-top: 13px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .leadership-panel { grid-template-columns: 1fr; }
+      .client-strip { padding-bottom: 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { width: 90%; }
+      .brand { font-size: 16px; }
+      .header-actions .btn { min-height: 40px; padding: 8px 11px; font-size: 11px; }
+      .hero { padding-top: 44px; }
+      h1 { font-size: 2.6rem; }
+      .hero-stats { gap: 18px; }
+      .stat strong { font-size: 22px; }
+      .stat span { max-width: 94px; font-size: 10px; }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .expertise-card { padding: 21px; }
+      .project-body { padding: 20px; }
+      .timeline { padding-left: 22px; }
+      .timeline-item::before { left: -29px; }
+      .timeline-head { display: block; }
+      .period { display: inline-block; margin-top: 4px; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+
+    @font-face {
+        font-family: "SF Pro Display";
+        src: url("./fonts/SF-Pro-Display-Regular.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "SF Pro Display";
+        src: url("./fonts/SF-Pro-Display-Medium.otf") format("opentype");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "SF Pro Display";
+        src: url("./fonts/SF-Pro-Display-Bold.otf") format("opentype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+  </style>
 </head>
-
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- HEADER -->
-
-<header>
-  <div class="container header-flex">
-
-    <div class="brand">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="Mohammad Khadem home">
       Mohammad <span>Khadem</span>
-    </div>
+    </a>
 
-    <nav class="main-nav">
-      <a href="#experience">Experience</a>
+    <nav class="nav" id="primary-navigation" aria-label="Main navigation">
+      <a href="#expertise">Expertise</a>
       <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
 
     <div class="header-actions">
-
-      <a href="Mohammad Khadem_files/MohammadKhademCV.pdf" download
-        class="btn btn-glass">
-        Download CV
+      <a class="btn btn-secondary" href="Mohammad Khadem_files/MohammadKhademCV.pdf" download>
+        <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
       </a>
-
-      <a href="mailto:mohammadkhadempro@gmail.com"
-        class="btn btn-primary">
-        Contact
-      </a>
-
+      <a class="btn btn-primary" href="mailto:mohammadkhadempro@gmail.com">Contact me</a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu"
+              aria-controls="primary-navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
-
   </div>
 </header>
 
-<!-- HERO -->
+<main id="main">
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="eyebrow">Software Engineering · Technical Leadership</div>
 
-<section class="hero">
+        <h1>Building <span class="accent">reliable</span> software for complex business needs.</h1>
 
-  <div class="container hero-grid">
+        <p class="hero-copy">
+          I’m a <strong>Senior Software Engineer and technical leader</strong> with 9+ years of experience
+          across business software, financial systems, APIs, and cross-platform mobile products.
+          I connect sound engineering decisions with product priorities—from system design and
+          implementation to team delivery.
+        </p>
 
-    <div class="hero-content">
+        <div class="hero-stats" aria-label="Career highlights">
+          <div class="stat"><strong>9+</strong><span>Years in software</span></div>
+          <div class="stat"><strong>4</strong><span>Engineers on the team I lead</span></div>
+          <div class="stat"><strong>3</strong><span>Android products delivered</span></div>
+        </div>
 
-      <div class="eyebrow">Available for select engagements</div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">
+            Explore selected work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-secondary" href="Mohammad Khadem_files/MohammadKhademCV.pdf" download>
+            Download résumé
+          </a>
+        </div>
 
-      <h1>
-        Architecting
-        <span>secure</span>,
-        scalable systems.
-      </h1>
+        <div class="social-links" aria-label="Contact and professional profiles">
+          <a href="mailto:mohammadkhadempro@gmail.com" aria-label="Email" title="Email">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </a>
+          <a href="https://wa.me/989364730020" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/Mohamadkhadem" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          </a>
+          <!-- Add your exact LinkedIn profile URL here when confirmed. -->
+        </div>
+      </div>
 
-      <p>
-        Senior Full-Stack Developer and Tech Lead with 10+ years building
-        accounting SaaS, enterprise financial platforms, and cross-platform
-        mobile products — from architecture through to a team shipping it.
+      <div class="hero-visual" aria-label="Portrait">
+        <img class="hero-photo"
+             src="Mohammad Khadem_files/xHUwoNvyPD9mXPobYOgrCqxFULM.jpeg"
+             alt="Portrait of Mohammad Khadem"
+             fetchpriority="high">
+        <div class="visual-note">
+          <strong>Engineering with purpose</strong>
+          Architecture · Delivery · Product impact
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="client-strip" aria-label="Selected organizations">
+    <div class="container">
+      <p>Selected organizations and product teams</p>
+      <div class="logo-row">
+        <img src="Mohammad Khadem_files/logo-orash.png" alt="Orash" loading="lazy">
+        <img src="Mohammad Khadem_files/logo-paradise.png" alt="Paradise" loading="lazy">
+        <img src="Mohammad Khadem_files/logo-asanik.png" alt="Asanik" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="expertise">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">What I do</div>
+          <h2 class="section-title">Core expertise</h2>
+        </div>
+        <p class="section-sub">
+          A blend of hands-on engineering, architecture, and team leadership focused on software
+          that can evolve with the business.
+        </p>
+      </div>
+
+      <div class="expertise-grid">
+        <article class="expertise-card">
+          <div class="expertise-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
+          <h3>Software Architecture</h3>
+          <p>Designing maintainable application structures, APIs, and data access layers for business-critical systems.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+          <h3>Secure API Engineering</h3>
+          <p>Building APIs with authentication, authorization, validation, and security considerations built into delivery.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
+          <h3>Financial & Business Systems</h3>
+          <p>Developing accounting workflows, reporting experiences, and applications that handle complex business rules.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-icon"><i class="fa-solid fa-people-group" aria-hidden="true"></i></div>
+          <h3>Technical Leadership</h3>
+          <p>Turning business requirements into delivery plans, engineering standards, and actionable work for a team.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Selected work</div>
+          <h2 class="section-title">Products & systems</h2>
+        </div>
+        <p class="section-sub">
+          A selection of financial and operational products. Case studies should clarify the problem,
+          my contribution, key technical decisions, and measurable outcomes.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art">
+            <span class="project-tag">Business software · SaaS</span>
+            <svg viewBox="0 0 600 260" role="img" aria-label="Financial dashboard illustration" xmlns="http://www.w3.org/2000/svg">
+              <rect width="600" height="260" fill="#eef2ff"/>
+              <rect x="54" y="36" width="492" height="188" rx="16" fill="#fff" stroke="#dce5ff"/>
+              <rect x="76" y="57" width="125" height="11" rx="5" fill="#9eb4f8"/>
+              <rect x="76" y="78" width="80" height="7" rx="3" fill="#d9e2fa"/>
+              <rect x="76" y="112" width="92" height="83" rx="9" fill="#f2f5ff"/>
+              <rect x="183" y="112" width="92" height="83" rx="9" fill="#f2f5ff"/>
+              <rect x="290" y="112" width="92" height="83" rx="9" fill="#f2f5ff"/>
+              <rect x="397" y="112" width="126" height="83" rx="9" fill="#f2f5ff"/>
+              <path d="M91 175 L111 151 L130 160 L151 133" stroke="#4169e1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="199" y="150" width="16" height="29" rx="3" fill="#b8c9ff"/>
+              <rect x="224" y="136" width="16" height="43" rx="3" fill="#4169e1"/>
+              <rect x="249" y="144" width="10" height="35" rx="3" fill="#9aabf2"/>
+              <circle cx="330" cy="151" r="22" fill="none" stroke="#d7e0ff" stroke-width="10"/>
+              <path d="M330 129 A22 22 0 0 1 350 160" fill="none" stroke="#4169e1" stroke-width="10" stroke-linecap="round"/>
+              <rect x="414" y="133" width="90" height="7" rx="3" fill="#bdcbf7"/>
+              <rect x="414" y="151" width="70" height="7" rx="3" fill="#dce5ff"/>
+              <rect x="414" y="169" width="82" height="7" rx="3" fill="#dce5ff"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>Accounting SaaS Platform</h3>
+            <p>Business-focused accounting software involving modular workflows, data access, reporting, and access-control requirements.</p>
+            <div class="project-meta">
+              <span class="chip">System design</span><span class="chip">SQL Server</span><span class="chip">Business logic</span>
+            </div>
+            <a class="btn btn-secondary" href="Project-SaaS-Platform.html">Read case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art">
+            <span class="project-tag">Flutter · Personal finance</span>
+            <svg viewBox="0 0 600 260" role="img" aria-label="Cheque management app illustration" xmlns="http://www.w3.org/2000/svg">
+              <rect width="600" height="260" fill="#eef2ff"/>
+              <rect x="208" y="22" width="184" height="216" rx="25" fill="#fff" stroke="#d4dfff" stroke-width="3"/>
+              <rect x="267" y="34" width="66" height="7" rx="3" fill="#d4dcf1"/>
+              <rect x="230" y="60" width="140" height="43" rx="10" fill="#edf2ff"/>
+              <circle cx="250" cy="81" r="8" fill="#4169e1"/>
+              <rect x="267" y="73" width="84" height="6" rx="3" fill="#9eb4f8"/>
+              <rect x="267" y="85" width="58" height="5" rx="2" fill="#c8d4f7"/>
+              <rect x="230" y="114" width="140" height="43" rx="10" fill="#f7f8fc" stroke="#e8edf7"/>
+              <circle cx="250" cy="135" r="8" fill="#7c5cff"/>
+              <rect x="267" y="127" width="84" height="6" rx="3" fill="#b9b0f8"/>
+              <rect x="267" y="139" width="58" height="5" rx="2" fill="#dcd8fb"/>
+              <rect x="230" y="168" width="140" height="43" rx="10" fill="#f7f8fc" stroke="#e8edf7"/>
+              <circle cx="250" cy="189" r="8" fill="#3c9c80"/>
+              <rect x="267" y="181" width="84" height="6" rx="3" fill="#a8d9cb"/>
+              <rect x="267" y="193" width="58" height="5" rx="2" fill="#d0e9e2"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>Cheque Yar — Cheque Management</h3>
+            <p>A mobile cheque-management product designed around cheque records, reminders, status tracking, backups, and financial overviews.</p>
+            <div class="project-meta">
+              <span class="chip">Flutter</span><span class="chip">Local data</span><span class="chip">Reporting</span>
+            </div>
+            <a class="btn btn-secondary" href="Project-chequeassistant.html">Read case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art">
+            <span class="project-tag">Flutter · Business intelligence</span>
+            <svg viewBox="0 0 600 260" role="img" aria-label="Mobile reporting illustration" xmlns="http://www.w3.org/2000/svg">
+              <rect width="600" height="260" fill="#eef2ff"/>
+              <rect x="205" y="19" width="190" height="222" rx="24" fill="#fff" stroke="#d4dfff" stroke-width="3"/>
+              <rect x="265" y="31" width="70" height="7" rx="3" fill="#d4dcf1"/>
+              <rect x="229" y="56" width="142" height="61" rx="11" fill="#f4f6ff"/>
+              <path d="M243 99 L266 82 L287 91 L310 68 L331 78 L356 64" fill="none" stroke="#4169e1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="356" cy="64" r="4" fill="#4169e1"/>
+              <rect x="229" y="129" width="142" height="87" rx="11" fill="#f8f9fd"/>
+              <rect x="247" y="174" width="18" height="26" rx="3" fill="#b8c9ff"/>
+              <rect x="276" y="154" width="18" height="46" rx="3" fill="#4169e1"/>
+              <rect x="305" y="164" width="18" height="36" rx="3" fill="#8fa8f4"/>
+              <rect x="334" y="143" width="18" height="57" rx="3" fill="#7c5cff"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>Mobile Financial Reporting</h3>
+            <p>A mobile reporting experience that brings business metrics and financial information into a more accessible workflow.</p>
+            <div class="project-meta">
+              <span class="chip">Flutter</span><span class="chip">Reporting UX</span><span class="chip">Performance</span>
+            </div>
+            <a class="btn btn-secondary" href="Accounting-Mobile-Reporting-System.html">Read case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art">
+            <span class="project-tag">Flutter · Order workflows</span>
+            <svg viewBox="0 0 600 260" role="img" aria-label="Order taking app illustration" xmlns="http://www.w3.org/2000/svg">
+              <rect width="600" height="260" fill="#eef2ff"/>
+              <rect x="208" y="20" width="184" height="220" rx="23" fill="#fff" stroke="#d4dfff" stroke-width="3"/>
+              <rect x="265" y="32" width="70" height="7" rx="3" fill="#d4dcf1"/>
+              <rect x="230" y="57" width="140" height="40" rx="9" fill="#f2f5ff"/>
+              <rect x="244" y="69" width="23" height="16" rx="4" fill="#c9d5ff"/>
+              <rect x="276" y="68" width="75" height="6" rx="3" fill="#9eb4f8"/>
+              <rect x="276" y="80" width="53" height="5" rx="2" fill="#d0daf6"/>
+              <rect x="230" y="107" width="140" height="40" rx="9" fill="#f8f9fd" stroke="#e8edf7"/>
+              <rect x="244" y="119" width="23" height="16" rx="4" fill="#d8d0ff"/>
+              <rect x="276" y="118" width="75" height="6" rx="3" fill="#b9b0f8"/>
+              <rect x="276" y="130" width="53" height="5" rx="2" fill="#e1dcfb"/>
+              <rect x="230" y="157" width="140" height="40" rx="9" fill="#f8f9fd" stroke="#e8edf7"/>
+              <rect x="244" y="169" width="23" height="16" rx="4" fill="#bde6d8"/>
+              <rect x="276" y="168" width="75" height="6" rx="3" fill="#7bbba7"/>
+              <rect x="276" y="180" width="53" height="5" rx="2" fill="#d3eee5"/>
+              <rect x="251" y="208" width="98" height="6" rx="3" fill="#4169e1"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>Enterprise Order Taker</h3>
+            <p>A mobile ordering workflow for sales and operations teams, built to support structured order capture and synchronization.</p>
+            <div class="project-meta">
+              <span class="chip">Flutter</span><span class="chip">Order management</span><span class="chip">Synchronization</span>
+            </div>
+            <a class="btn btn-secondary" href="Enterprise-Order-Management-System.html">Read case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <p class="case-note">
+        Project details and technologies are presented at a high level. Add only screenshots, metrics,
+        and implementation details that you are authorized to share publicly.
       </p>
+    </div>
+  </section>
 
-      <div class="hero-stats">
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-head">
         <div>
-          <strong>10+</strong>
-          <span>Years of experience</span>
+          <div class="section-kicker">Career path</div>
+          <h2 class="section-title">Experience & leadership</h2>
         </div>
+        <p class="section-sub">
+          Progression from hands-on development into software delivery leadership,
+          alongside product-management work.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-head">
+            <h3>Head of Production</h3>
+            <span class="period">Mar 2023 — Present</span>
+          </div>
+          <div class="timeline-org">
+            <img src="Mohammad Khadem_files/logo-orash.png" alt="" loading="lazy">Orash Soft
+          </div>
+          <ul>
+            <li>Lead a team of four developers and coordinate engineering work with business and product priorities.</li>
+            <li>Drive improvements to architecture, software performance, stability, usability, and delivery processes.</li>
+            <li>Help deliver Android products and improve customer update workflows.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-head">
+            <h3>Senior Software Developer</h3>
+            <span class="period">Oct 2020 — Mar 2023</span>
+          </div>
+          <div class="timeline-org">
+            <img src="Mohammad Khadem_files/logo-orash.png" alt="" loading="lazy">Orash Soft
+          </div>
+          <ul>
+            <li>Developed and maintained business-critical software using Delphi and SQL-based data workflows.</li>
+            <li>Implemented business rules, investigated production issues, and improved reliability and maintainability.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-head">
+            <h3>Software Programmer</h3>
+            <span class="period">Jul 2018 — Oct 2020</span>
+          </div>
+          <div class="timeline-org">
+            <img src="Mohammad Khadem_files/logo-orash.png" alt="" loading="lazy">Orash Soft
+          </div>
+          <ul>
+            <li>Built and maintained application features, fixed defects, and supported database-driven workflows.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-head">
+            <h3>Senior Product Manager</h3>
+            <span class="period">Mar 2019 — Sep 2022</span>
+          </div>
+          <div class="timeline-org">
+            <img src="Mohammad Khadem_files/logo-paradise.png" alt="" loading="lazy">Paradise Creativity House · Part-time
+          </div>
+          <ul>
+            <li>Worked across product strategy, UX improvements, and delivery of digital products including Pachaal.</li>
+            <li>Contributed to a website UX redesign associated with a reported 45% increase in visits.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-head">
+            <h3>Software Product Management</h3>
+            <span class="period">Jun 2018 — Mar 2019</span>
+          </div>
+          <div class="timeline-org">Roushan Girls’ Educational Academy · Part-time</div>
+          <ul>
+            <li>Coordinated website and Android e-learning product work, including online learning and sales workflows.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-head">
+            <h3>IT / Project Manager</h3>
+            <span class="period">Dec 2017 — Jun 2018</span>
+          </div>
+          <div class="timeline-org">Dian IT</div>
+          <ul>
+            <li>Managed IT and website-related work for an on-demand computer-services business, improving how customers discovered services.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="leadership-panel">
         <div>
-          <strong>4</strong>
-          <span>Engineers led</span>
-        </div>
-        <div>
-          <strong>3</strong>
-          <span>Android apps shipped</span>
-        </div>
-      </div>
-
-      <div class="hero-actions">
-
-        <a href="#projects"
-          class="btn btn-primary">
-          Explore Work
-        </a>
-
-        <a href="#experience"
-          class="btn btn-glass">
-          View Experience
-        </a>
-
-      </div>
-
-      <div class="hero-social">
-
-        <a href="mailto:mohammadkhadempro@gmail.com" aria-label="Email" title="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-
-        <a href="https://wa.me/989364730020" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-
-        <a href="#" data-social="github" aria-label="GitHub" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-
-        <a href="#" data-social="linkedin" aria-label="LinkedIn" title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="hero-image">
-      <div class="glow"></div>
-      <img
-        src="Mohammad Khadem_files/xHUwoNvyPD9mXPobYOgrCqxFULM.jpeg"
-        alt="Mohammad Khadem">
-    </div>
-
-  </div>
-
-</section>
-
-<!-- LOGO STRIP -->
-
-<div class="logo-strip">
-  <div class="container">
-    <p>Companies I've built products for</p>
-    <div class="logo-row">
-      <img src="Mohammad Khadem_files/logo-orash.png" alt="Orash">
-      <img src="Mohammad Khadem_files/logo-paradise.png" alt="Paradise Advertising Agency">
-      <img src="Mohammad Khadem_files/logo-asanik.png" alt="Asanik Company">
-    </div>
-  </div>
-</div>
-
-<!-- EXPERTISE -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="section-head">
-      <h2 class="section-title">Core Expertise</h2>
-      <p class="section-sub">Where I spend most of my time — from system design to the code and the team that ships it.</p>
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-sitemap"></i></div>
-        <h3>System Architecture</h3>
-        <p>
-          Designing scalable, maintainable SaaS
-          infrastructure for enterprise products.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <h3>Security Engineering</h3>
-        <p>
-          Secure-by-design APIs, authentication systems,
-          and scalable access control models.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
-        <h3>Financial Platforms</h3>
-        <p>
-          Building accounting systems, reporting engines,
-          and transaction-heavy applications.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-people-group"></i></div>
-        <h3>Technical Leadership</h3>
-        <p>
-          Aligning software architecture with product strategy
-          and business scalability goals.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section id="experience" class="section">
-
-  <div class="container">
-
-    <div class="section-head">
-      <h2 class="section-title">Experience</h2>
-      <p class="section-sub">A decade across engineering leadership and product management.</p>
-    </div>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-head">
-          <h3>Head of Software Engineering</h3>
-          <span class="period">Jul 2018 — Present</span>
-        </div>
-        <div class="timeline-org">
-          <img src="Mohammad Khadem_files/logo-orash.png" alt="Orash">
-          Orash — one of the largest accounting software providers in Iran
-        </div>
-        <ul>
-          <li>Increased system performance, lifting customer satisfaction by 60%</li>
-          <li>Automated the update pipeline, boosting delivery satisfaction by 90%+</li>
-          <li>Designed and launched 3 Android apps with 4,000+ users acquired</li>
-          <li>Led a team of 4 developers and aligned engineering with business goals</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-head">
-          <h3>Product Manager</h3>
-          <span class="period">Mar 2019 — Sep 2022</span>
-        </div>
-        <div class="timeline-org">
-          <img src="Mohammad Khadem_files/logo-paradise.png" alt="Paradise Advertising Agency">
-          Paradise Advertising Agency — one of Iran's top advertising agencies
-        </div>
-        <ul>
-          <li>Increased website traffic by 45% through a UX redesign</li>
-          <li>Designed and launched Pachaal, a digital restaurant menu product</li>
-          <li>Built the companion mobile ordering application</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-head">
-          <h3>Product Manager</h3>
-          <span class="period">Jun 2018 — Mar 2019</span>
-        </div>
-        <div class="timeline-org">
-          Roushan Educational Academy — university entrance exam preparation
-        </div>
-        <ul>
-          <li>Increased student engagement by 40% and revenue by 25%</li>
-          <li>Built the academy's website and an Android e-learning app</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-head">
-          <h3>IT Manager / Project Manager</h3>
-          <span class="period">Dec 2017 — Jun 2018</span>
-        </div>
-        <div class="timeline-org">
-          Dian IT Company
-        </div>
-        <ul>
-          <li>Managed IT operations and client projects</li>
-          <li>Designed web-based solutions and technical proposals</li>
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects" class="section">
-
-  <div class="container">
-
-    <div class="section-head">
-      <h2 class="section-title">Selected Projects</h2>
-      <p class="section-sub">Financial and operational systems built end to end — architecture, backend, and mobile.</p>
-    </div>
-
-    <div class="grid">
-
-      <!-- PROJECT 1 -->
-
-      <div class="project-card">
-
-        <div class="project-thumb">
-          <span class="project-tag">SaaS · ASP.NET Core</span>
-          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="225" fill="#eef2ff"/>
-            <rect x="60" y="130" width="70" height="60" rx="8" fill="#c7d5ff"/>
-            <rect x="140" y="105" width="70" height="85" rx="8" fill="#a9bfff"/>
-            <rect x="220" y="80" width="70" height="110" rx="8" fill="#4f7cff"/>
-            <rect x="300" y="55" width="40" height="135" rx="8" fill="#7c5cff"/>
-            <circle cx="320" cy="45" r="16" fill="#ffffff" stroke="#4f7cff" stroke-width="3"/>
-            <path d="M312 45l5 6 10-12" stroke="#4f7cff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="50" y="200" width="300" height="4" rx="2" fill="#dbe3ff"/>
-          </svg>
-        </div>
-
-        <div class="project-content">
-
-          <h3>Accounting SaaS Platform</h3>
-
+          <div class="section-kicker">Engineering toolkit</div>
+          <h3>Practical, delivery-focused engineering</h3>
           <p>
-            Multi-tenant accounting infrastructure with
-            modular architecture and role-based access control.
+            My work spans backend systems, databases, mobile applications, and the engineering
+            practices that help teams maintain them over time.
           </p>
-
-          <a href="Project-SaaS-Platform.html"
-            class="btn btn-primary">
-            View Case Study
-          </a>
-
         </div>
-
+        <div class="skill-list" aria-label="Technical skills">
+          <span>C#</span><span>ASP.NET Core Web API</span><span>Dapper</span><span>SQL Server</span>
+          <span>Delphi</span><span>Flutter</span><span>REST APIs</span><span>System Design</span>
+          <span>API Security</span><span>Technical Leadership</span><span>Product Delivery</span>
+        </div>
       </div>
-
-      <!-- PROJECT 2 -->
-
-      <div class="project-card">
-
-        <div class="project-thumb">
-          <span class="project-tag">Flutter · Offline-first</span>
-          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="225" fill="#eef2ff"/>
-            <rect x="120" y="55" width="160" height="105" rx="12" fill="#ffffff" stroke="#4f7cff" stroke-width="3"/>
-            <rect x="140" y="78" width="120" height="8" rx="4" fill="#c7d5ff"/>
-            <rect x="140" y="96" width="90" height="6" rx="3" fill="#dbe3ff"/>
-            <rect x="140" y="110" width="70" height="6" rx="3" fill="#dbe3ff"/>
-            <path d="M140 138 h120" stroke="#dbe3ff" stroke-width="2"/>
-            <path d="M230 145 l10 8 15 -18" stroke="#4f7cff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="150" cy="146" r="6" fill="#7c5cff"/>
-            <path d="M95 60 a30 30 0 0 1 20 -18" stroke="#a9bfff" stroke-width="4" fill="none" stroke-linecap="round"/>
-            <path d="M305 155 a30 30 0 0 1 -20 18" stroke="#a9bfff" stroke-width="4" fill="none" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <div class="project-content">
-
-          <h3>Cheque Assistant</h3>
-
-          <p>
-            Offline-first cheque management application
-            with analytics and secure synchronization.
-          </p>
-
-          <a href="Project-chequeassistant.html"
-            class="btn btn-primary">
-            View Case Study
-          </a>
-
-        </div>
-
-      </div>
-
-      <!-- PROJECT 3 -->
-
-      <div class="project-card">
-
-        <div class="project-thumb">
-          <span class="project-tag">Flutter · BI Dashboard</span>
-          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="225" fill="#eef2ff"/>
-            <rect x="145" y="35" width="110" height="180" rx="20" fill="#ffffff" stroke="#4f7cff" stroke-width="3"/>
-            <rect x="163" y="60" width="74" height="46" rx="8" fill="#eef2ff"/>
-            <polyline points="170,98 185,80 198,90 212,68 228,76" stroke="#4f7cff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="163" y="116" width="18" height="34" rx="3" fill="#c7d5ff"/>
-            <rect x="187" y="128" width="18" height="22" rx="3" fill="#a9bfff"/>
-            <rect x="211" y="108" width="18" height="42" rx="3" fill="#4f7cff"/>
-            <rect x="163" y="162" width="74" height="8" rx="4" fill="#dbe3ff"/>
-            <rect x="163" y="176" width="50" height="6" rx="3" fill="#eef2ff"/>
-            <circle cx="200" cy="200" r="5" fill="#4f7cff"/>
-          </svg>
-        </div>
-
-        <div class="project-content">
-
-          <h3>Mobile Reporting System</h3>
-
-          <p>
-            High-performance financial reporting dashboard
-            optimized for mobile workflows.
-          </p>
-
-          <a href="Accounting-Mobile-Reporting-System.html"
-            class="btn btn-primary">
-            View Case Study
-          </a>
-
-        </div>
-
-      </div>
-
-      <!-- PROJECT 4 -->
-
-      <div class="project-card">
-
-        <div class="project-thumb">
-          <span class="project-tag">Flutter · Real-time Sync</span>
-          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="225" fill="#eef2ff"/>
-            <path d="M150 45 h100 v130 l-15 15 h-70 l-15 -15 z" fill="#ffffff" stroke="#4f7cff" stroke-width="3"/>
-            <path d="M150 45 l10 -10 h80 l10 10" fill="none" stroke="#4f7cff" stroke-width="3" stroke-linejoin="round"/>
-            <rect x="168" y="70" width="64" height="6" rx="3" fill="#c7d5ff"/>
-            <rect x="168" y="86" width="64" height="6" rx="3" fill="#dbe3ff"/>
-            <rect x="168" y="102" width="44" height="6" rx="3" fill="#dbe3ff"/>
-            <path d="M168 122 h64" stroke="#eef2ff" stroke-width="2"/>
-            <path d="M172 138 l10 8 16 -20" stroke="#4f7cff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="196" y="145" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#4f7cff"></text>
-            <circle cx="290" cy="70" r="22" fill="#4f7cff"/>
-            <path d="M280 70 h20 M290 60 v20" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <div class="project-content">
-
-          <h3>Enterprise Order Taker</h3>
-
-          <p>
-            A real-time mobile ordering system designed for restaurants and retail environments.
-          </p>
-
-          <a href="Enterprise-Order-Management-System.html"
-            class="btn btn-primary">
-            View Case Study
-          </a>
-
-        </div>
-
-      </div>
-
     </div>
+  </section>
 
-  </div>
-
-</section>
-
-<!-- CTA -->
-
-<section id="contact" class="section">
-
-  <div class="container">
-
-    <div class="cta-box">
-
-      <h2 class="section-title">
-        Let's build something serious
-      </h2>
-
-      <p>
-        If you're building a scalable product that requires
-        structure, precision, and long-term engineering vision,
-        I'm open to discussing collaboration.
-      </p>
-
-      <a href="mailto:mohammadkhadempro@gmail.com"
-        class="btn btn-primary">
-        Start a Conversation
-      </a>
-
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div class="section-kicker">Let’s talk</div>
+        <h2>Building a product with complex engineering needs?</h2>
+        <p>
+          I’m open to discussing software engineering, backend and mobile development,
+          architecture, and technical leadership opportunities.
+        </p>
+        <a class="btn btn-primary" href="mailto:mohammadkhadempro@gmail.com">
+          Start a conversation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
-
-  </div>
-
-</section>
-
-<!-- FOOTER -->
+  </section>
+</main>
 
 <footer>
-  <div class="container">
-    <div class="foot-links">
+  <div class="container footer-inner">
+    <div>© <span id="current-year">2026</span> Mohammad Khadem. All rights reserved.</div>
+    <div class="footer-links">
       <a href="mailto:mohammadkhadempro@gmail.com">Email</a>
-      <a href="https://wa.me/989364730020" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://wa.me/989364730020" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://github.com/Mohamadkhadem" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="Mohammad Khadem_files/MohammadKhademCV.pdf" download>Résumé</a>
     </div>
-    © 2026 Mohammad Khadem. All rights reserved.
   </div>
 </footer>
 
+<script>
+  (() => {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#primary-navigation');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+
+        const icon = toggle.querySelector('i');
+        if (icon) icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+      });
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open navigation menu');
+
+          const icon = toggle.querySelector('i');
+          if (icon) icon.className = 'fa-solid fa-bars';
+        });
+      });
+    }
+
+    const year = document.querySelector('#current-year');
+    if (year) year.textContent = String(new Date().getFullYear());
+  })();
+</script>
 </body>
 </html>
