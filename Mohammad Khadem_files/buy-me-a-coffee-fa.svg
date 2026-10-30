@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="210" viewBox="0 0 900 210" role="img" aria-labelledby="title desc">
+  <title id="title">یه قهوه برام بخر — محمد خادم</title>
+  <desc id="desc">بنر حمایت از پروژه‌های متن‌باز محمد خادم</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172433"/>
+      <stop offset="1" stop-color="#26394d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffc857"/>
+      <stop offset="1" stop-color="#ffdc8a"/>
+    </linearGradient>
+    <linearGradient id="steam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff7e8" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#fff7e8" stop-opacity=".25"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1" y="1" width="898" height="208" rx="22" fill="url(#bg)" stroke="#34485b" stroke-width="2"/>
+  <circle cx="785" cy="30" r="125" fill="#ffffff" opacity=".035"/>
+  <circle cx="845" cy="183" r="100" fill="#ffc857" opacity=".07"/>
+  <path d="M0 178 C180 145 280 230 465 190 S710 160 900 185 L900 210 L0 210 Z" fill="#ffffff" opacity=".025"/>
+
+  <!-- Coffee icon -->
+  <g transform="translate(52 54)" stroke="#ffc857" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M20 2 C12 -8 28 -12 20 -23"/>
+    <path d="M43 2 C35 -8 51 -12 43 -23"/>
+    <path d="M7 16 H57 V55 C57 68 47 77 34 77 H30 C17 77 7 68 7 55 Z" fill="#ffc857" fill-opacity=".12"/>
+    <path d="M57 25 H67 C80 25 80 48 67 48 H57"/>
+    <path d="M3 84 H65"/>
+  </g>
+
+  <text x="475" y="66" fill="#ffffff" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="29" font-weight="700" text-anchor="middle" direction="rtl">از این پروژه خوشت اومده؟</text>
+  <text x="475" y="103" fill="#c7d1dc" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="17" text-anchor="middle" direction="rtl">حمایت تو بهم انگیزه می‌ده تا</text>
+  <text x="475" y="129" fill="#c7d1dc" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="17" text-anchor="middle" direction="rtl">ابزارهای متن‌باز بیشتری بسازم.</text>
+
+  <rect x="285" y="151" width="255" height="39" rx="19.5" fill="url(#gold)"/>
+  <text x="410" y="176" fill="#172433" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle" direction="rtl">☕ یه قهوه برام بخر</text>
+  <path d="M510 171 H526 M519 164 L526 171 L519 178" fill="none" stroke="#172433" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Cup illustration -->
+  <g transform="translate(640 51)">
+    <ellipse cx="92" cy="119" rx="95" ry="16" fill="#0b1420" opacity=".32"/>
+    <ellipse cx="92" cy="112" rx="84" ry="14" fill="#b87943"/>
+    <ellipse cx="92" cy="108" rx="72" ry="10" fill="#e3b47b"/>
+    <path d="M43 47 H133 L126 99 Q124 111 111 111 H66 Q52 111 50 99 Z" fill="#f7f5f0"/>
+    <path d="M133 56 H145 Q169 56 162 79 Q158 91 131 89" fill="none" stroke="#f7f5f0" stroke-width="11" stroke-linecap="round"/>
+    <ellipse cx="88" cy="48" rx="45" ry="13" fill="#ffffff"/>
+    <ellipse cx="88" cy="49" rx="37" ry="8" fill="#7b4529"/>
+    <ellipse cx="88" cy="48" rx="29" ry="5" fill="#3b241b"/>
+    <path d="M74 29 C63 18 82 15 72 3" fill="none" stroke="url(#steam)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M97 27 C87 15 107 11 98 0" fill="none" stroke="url(#steam)" stroke-width="4" stroke-linecap="round"/>
+    <text x="87" y="83" fill="#26394d" font-family="monospace" font-size="20" font-weight="700" text-anchor="middle">&lt;/&gt;</text>
+  </g>
+
+  <text x="865" y="194" fill="#a9b7c6" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" text-anchor="end" direction="rtl">محمد خادم · پروژه‌های متن‌باز</text>
+</svg>
