@@ -1,9 +1,454 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Smart Document Capture | Mohammad Khadem</title><meta name="description" content="Structured document and receipt data extraction for Flutter.">
-<link rel="stylesheet" href="project-pages.css"><link rel="stylesheet" href="case-study-enhancements.css"></head><body>
-<div class="topbar"><div class="topbar-inner"><a href="portfolio.html" class="back-link">&larr; Mohammad Khadem</a><nav class="case-nav" aria-label="Case study navigation"><a href="portfolio.html">Portfolio</a><a href="index.html#contact">Contact</a></nav></div></div>
-<main><div class="hero fade"><p class="case-study-label">Open-source case study</p><h1>Smart Document Capture</h1><p>A Flutter package suite for extracting structured data from document, receipt, and form images—with field-level confidence, manual review, and pluggable OCR engines.</p><div class="cta"><a class="btn btn-primary" href="https://github.com/Mohamadkhadem/smart_document_capture" target="_blank" rel="noopener noreferrer">View on GitHub &nearr;</a><a class="btn btn-glass" href="#architecture">Explore architecture</a></div></div>
-<section class="fade"><h2 class="section-title">The challenge</h2><p class="section-text">OCR output is only useful when it becomes trustworthy application data. This project adds the pieces around text recognition—schemas, locators, validation, confidence scoring, and a review interface—so apps can turn images into usable records.</p></section>
-<section id="architecture" class="fade"><h2 class="section-title">A modular package suite</h2><div class="grid"><article class="card"><h3>Capture core</h3><p>Models, schemas, locators, validators, confidence scoring, and a review widget compose the main package.</p></article><article class="card"><h3>Field-level confidence</h3><p>Every extraction can retain confidence information, helping users review uncertain fields rather than treating OCR as all-or-nothing.</p></article><article class="card"><h3>Manual review</h3><p>A review UI supports transparent correction flows for receipts, forms, and document-derived data.</p></article><article class="card"><h3>Pluggable engines</h3><p>The architecture is ready for multiple OCR providers, with the first engine focused on offline capture.</p></article><article class="card"><h3>Offline Tesseract add-on</h3><p><code>smart_document_capture_tesseract</code> uses Tesseract and hOCR for offline Android/iOS OCR, including Persian and English.</p></article><article class="card"><h3>Open-source roadmap</h3><p>Future directions include cloud engines, Iranian ID and bank-card schemas, and document edge detection.</p></article></div></section>
-<section class="fade"><h2 class="section-title">Why the Tesseract package belongs here</h2><p class="section-text">The Tesseract package is the first OCR implementation for this system, not a separate product. It feeds word boxes and confidence data into the core package, enabling structured scoring and on-image review while keeping recognition offline.</p></section><section id="contact" class="fade"><div class="cta-box"><h2 class="section-title">Explore the source</h2><p>Open-source code, usage details, and the latest documentation are available on GitHub.</p><a class="btn btn-primary" href="https://github.com/Mohamadkhadem" target="_blank" rel="noopener noreferrer">Visit GitHub &rarr;</a></div></section><script>document.querySelectorAll('.fade').forEach(el=>el.classList.add('show'));</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Financial Platform</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="Mohammad Khadem_files/favicon_light.png" rel="icon" media="(prefers-color-scheme: dark)">
+<link href="Mohammad Khadem_files/favicon_dark.png" rel="icon" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  backdrop-filter:blur(16px);
+  background:rgba(245,247,251,0.8);
+  border-bottom:1px solid rgba(15,23,42,0.06);
+  padding:16px 24px;
+}
+
+.topbar-inner{
+  max-width:1150px;
+  margin:auto;
+}
+
+.back-link{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:700;
+  font-size:14.5px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.back-link:hover{
+  color:var(--accent);
+}
+
+.cover-showcase{
+  max-width:640px;
+  margin:56px auto 0;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,0.8);
+}
+
+.cover-showcase svg{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+
+/* ================= ROOT ================= */
+
+:root{
+
+  --bg:#f5f7fb;
+
+  --panel:
+    rgba(255,255,255,0.72);
+
+  --panel-solid:#ffffff;
+
+  --border:
+    rgba(15,23,42,0.06);
+
+  --text:#0f172a;
+
+  --muted:#64748b;
+
+  --accent:#4f7cff;
+
+  --shadow:
+    0 10px 30px rgba(15,23,42,0.05);
+
+  --shadow-hover:
+    0 20px 50px rgba(15,23,42,0.08);
+}
+
+/* ================= BASE ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* background glow */
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(79,124,255,0.08),
+      transparent 35%),
+
+    radial-gradient(circle at bottom right,
+      rgba(79,124,255,0.05),
+      transparent 40%);
+
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:92vh;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  padding:120px 24px 100px;
+}
+
+.hero h1{
+  font-size:64px;
+  font-weight:800;
+
+  letter-spacing:-2px;
+
+  margin-bottom:24px;
+}
+
+.hero p{
+  max-width:850px;
+
+  color:var(--muted);
+
+  font-size:18px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+  margin-top:34px;
+
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.btn{
+  position:relative;
+
+  padding:13px 24px;
+
+  border-radius:16px;
+
+  text-decoration:none;
+
+  font-size:14px;
+  font-weight:600;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:all .25s ease;
+}
+
+.btn-primary {
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 16px 40px rgba(79,124,255,0.28);
+}
+
+.btn-glass{
+
+  background:var(--panel);
+
+  backdrop-filter:blur(14px);
+
+  border:1px solid rgba(255,255,255,0.7);
+
+  color:var(--text);
+
+  box-shadow:var(--shadow);
+}
+
+.btn-glass:hover{
+  transform:translateY(-3px);
+}
+
+/* ================= SECTION ================= */
+
+section{
+  max-width:1150px;
+  margin:auto;
+
+  padding:110px 24px;
+}
+
+.section-title{
+  font-size:38px;
+  letter-spacing:-1px;
+
+  margin-bottom:44px;
+}
+
+.section-text{
+  color:var(--muted);
+  max-width:920px;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+  gap:22px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+
+  background:var(--panel);
+
+  backdrop-filter:blur(14px);
+
+  border:
+    1px solid rgba(255,255,255,0.8);
+
+  border-radius:24px;
+
+  padding:28px;
+
+  box-shadow:var(--shadow);
+
+  transition:all .3s ease;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+
+  box-shadow:var(--shadow-hover);
+}
+
+.card h3{
+  margin-bottom:12px;
+
+  font-size:18px;
+}
+
+.card p{
+  color:var(--muted);
+
+  font-size:14.5px;
+}
+
+/* ================= SCREENSHOTS ================= */
+
+.gallery-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+  gap:24px;
+}
+
+.gallery-item{
+
+  overflow:hidden;
+
+  border-radius:24px;
+
+  background:#fff;
+
+  box-shadow:var(--shadow);
+
+  transition:all .35s ease;
+}
+
+.gallery-item:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-hover);
+}
+
+.gallery-item img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  transition:transform .45s ease;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.03);
+}
+
+/* ================= CTA BOX ================= */
+
+.cta-box{
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(79,124,255,0.10),
+      rgba(255,255,255,0.65)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.9);
+
+  border-radius:34px;
+
+  padding:70px 40px;
+
+  text-align:center;
+
+  box-shadow:var(--shadow);
+}
+
+.cta-box p{
+  color:var(--muted);
+
+  max-width:700px;
+
+  margin:20px auto 30px;
+}
+
+/* ================= ANIMATION ================= */
+
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all .8s ease;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:42px;
+    letter-spacing:-1.5px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .section-title{
+    font-size:30px;
+  }
+
+}
+
+</style>
+  <link rel="stylesheet" href="project-pages.css">
+  <link rel="stylesheet" href="case-study-enhancements.css">
+</head>
+
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <a href="portfolio.html" class="back-link">&larr; Mohammad Khadem</a>
+  <nav class="case-nav" aria-label="Case study navigation"><a href="portfolio.html">Portfolio</a><a href="index.html#contact">Contact</a></nav>
+</div></div>
+<div class="hero fade">
+  <p class="case-study-label">Open-source case study</p>
+  <h1>Smart Document Capture</h1>
+  <p>A Flutter package suite for extracting structured data from document, receipt, and form images—with field-level confidence, manual review, and pluggable OCR engines.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="https://github.com/Mohamadkhadem/smart_document_capture" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    <a class="btn btn-glass" href="#features">Explore Details</a>
+  </div>
+</div>
+<section class="fade">
+  <h2 class="section-title">Problem & Solution</h2>
+  <p class="section-text">Raw OCR text is not enough for production workflows. Applications need schema-aware extraction, confidence signals, and a way for people to safely correct ambiguous results. Smart Document Capture provides the layer between an image and trustworthy structured data.</p>
+</section>
+<section id="features" class="fade">
+  <h2 class="section-title">Core Capabilities</h2>
+  <div class="grid"><div class="card"><h3>Structured Capture Core</h3><p>Models, schemas, locators, validators, confidence scoring, and a review widget in the core package.</p></div>
+<div class="card"><h3>Field Confidence</h3><p>Confidence is kept per field, helping applications route uncertain results into a clear review flow.</p></div>
+<div class="card"><h3>Manual Review</h3><p>A review interface supports correcting receipt, form, and document values rather than hiding OCR uncertainty.</p></div>
+<div class="card"><h3>Pluggable OCR</h3><p>The package architecture supports multiple recognition providers behind one capture workflow.</p></div>
+<div class="card"><h3>Offline Tesseract</h3><p>The companion Tesseract package works offline on Android and iOS, with Persian and English support.</p></div>
+<div class="card"><h3>hOCR Integration</h3><p>Word boxes and confidence are read from hOCR output for scoring and visual review.</p></div></div>
+</section>
+<section class="fade">
+  <h2 class="section-title">Architecture & Design</h2>
+  <div class="grid"><div class="card"><h3>Flutter-first Design</h3><p>A package suite designed for use inside Flutter products and application-specific schemas.</p></div>
+<div class="card"><h3>Offline by Default</h3><p>The Tesseract implementation enables on-device OCR without depending on a network connection.</p></div>
+<div class="card"><h3>Extensible Roadmap</h3><p>The architecture is prepared for cloud engines, document edge detection, and specialized Iranian document schemas.</p></div>
+<div class="card"><h3>Open Source</h3><p>MIT licensed and structured as a core package plus focused engine implementations.</p></div></div>
+</section>
+<section class="fade">
+  <h2 class="section-title">How the Tesseract package fits</h2>
+  <p class="section-text">smart_document_capture_tesseract is intentionally part of this same Case Study. It is the first OCR engine implementation for the core package, feeding word boxes and confidence data into the structured capture and review workflow.</p>
+</section>
+<section id="contact" class="fade">
+  <div class="cta-box">
+    <h2 class="section-title">Open source, built to be useful</h2>
+    <p>Read the full documentation, browse the source, or use this project in your own Flutter application.</p>
+    <a class="btn btn-primary" href="https://github.com/Mohamadkhadem/smart_document_capture" target="_blank" rel="noopener noreferrer">View Source Code</a>
+  </div>
+</section>
+<script>
+const elements=document.querySelectorAll('.fade');
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('show')}),{threshold:.15});
+elements.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
