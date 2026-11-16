@@ -1,0 +1,10 @@
+/* Case-study presentation refinements */
+.topbar-inner{justify-content:space-between;gap:24px}
+.case-nav{display:flex;align-items:center;gap:22px}
+.case-nav a{color:var(--muted);font-size:13px;font-weight:650;text-decoration:none}
+.case-nav a:hover{color:var(--accent)}
+.case-study-label{width:auto;max-width:none!important;margin:0 0 18px!important;padding:6px 12px;color:var(--accent-dark)!important;background:var(--accent-soft);border:1px solid #dce5ff;border-radius:99px;font-size:11px!important;font-weight:800;letter-spacing:.7px;line-height:1.2!important;text-transform:uppercase}
+.hero>p:not(.case-study-label){max-width:750px}
+.card{border-color:var(--line);border-radius:18px}
+.card:hover{border-color:#d3defa}
+@media(max-width:680px){.case-nav{gap:14px}.case-nav a{font-size:12px}}
