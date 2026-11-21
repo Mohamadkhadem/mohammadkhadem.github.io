@@ -1,0 +1,5 @@
+/* Keep typography natural and consistent across the site. */
+body,
+body * {
+  letter-spacing: normal !important;
+}
