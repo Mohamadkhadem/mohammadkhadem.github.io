@@ -1,0 +1,53 @@
+/* Shared text rhythm for readable, consistent spacing across the site. */
+:root {
+  --site-body-leading: 1.78;
+  --site-copy-leading: 1.82;
+}
+
+body {
+  line-height: var(--site-body-leading) !important;
+}
+
+main p,
+main li,
+main blockquote,
+main figcaption {
+  line-height: var(--site-copy-leading) !important;
+}
+
+main p + p {
+  margin-top: .75em !important;
+}
+
+main li + li {
+  margin-top: .35em;
+}
+
+main h1 {
+  line-height: 1.12 !important;
+}
+
+main h2 {
+  line-height: 1.24 !important;
+}
+
+main h3,
+main h4 {
+  line-height: 1.32 !important;
+}
+
+main p,
+main li {
+  letter-spacing: .005em;
+}
+
+@media (max-width: 680px) {
+  :root {
+    --site-body-leading: 1.72;
+    --site-copy-leading: 1.78;
+  }
+
+  main h1 {
+    line-height: 1.16 !important;
+  }
+}
